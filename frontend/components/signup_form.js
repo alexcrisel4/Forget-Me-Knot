@@ -34,14 +34,16 @@ class SignupForm extends React.Component {
       <h2>Welcome to Forget Me Knot</h2>
       <form className="email-form" onSubmit={this.handleSubmit}>
        
-        <label HTMLfor="email">Email: </label>
+        <label htmlFor="email">Email: </label>
         <input id="email" type="text" placeholder="email@email.com" onChange={this.update("email")} />
-        <label HTMLfor="username">Username:</label>
+        <label htmlFor="username">Username:</label>
         <input id="username" type="text" placeholder="username" onChange={this.update("username")} />
-        <label HTMLfor="password">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input id="password" type="password" placeholder="password" onChange={this.update("password")} />
         <input className="next" type="submit" value="Sign Up" />
       </form>
+      <div>Already a user?</div>
+      <Link to="/login" >Login</Link>
       </div>
     )
   }
