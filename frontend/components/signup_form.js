@@ -30,8 +30,10 @@ class SignupForm extends React.Component {
   
   render() {
     return(
+      <div>
+      <h2>Welcome to Forget Me Knot</h2>
       <form className="email-form" onSubmit={this.handleSubmit}>
-        <h2>Welcome to Forget Me Knot</h2>
+       
         <label HTMLfor="email">Email: </label>
         <input id="email" type="text" placeholder="email@email.com" onChange={this.update("email")} />
         <label HTMLfor="username">Username:</label>
@@ -40,8 +42,10 @@ class SignupForm extends React.Component {
         <input id="password" type="password" placeholder="password" onChange={this.update("password")} />
         <input className="next" type="submit" value="Sign Up" />
       </form>
+      </div>
     )
   }
+}
 
     
    

@@ -5,7 +5,8 @@ import React from 'react';
 
 const mapStateToProps = state => {
   return ({
-    errors: state.errors.session
+    errors: state.errors.session,
+    formType: "signup"
   })
 }
 
