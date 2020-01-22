@@ -8,8 +8,13 @@
     "test": "test"
   },
   "scripts": {
+    "postinstall": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --mode=development --watch"
+  },
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0"
   },
   "repository": {
     "type": "git",
