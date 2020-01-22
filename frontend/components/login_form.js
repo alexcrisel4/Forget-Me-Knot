@@ -40,7 +40,7 @@ class LoginForm extends React.Component {
         <form className="login-form" onSubmit={this.handleSubmit}>
           <h3>Log in</h3>
           <label for="login-email">Email/Username</label>
-          <input id="login-email" className="login-input" type="text" placeholder="johndoe@company.com" onChange={this.update("email")} />
+          <input id="login-email" className="login-input" type="text" placeholder="email@email.com" onChange={this.update("email")} />
           <label for="login-password" >Password</label>
           <input id="login-password" className="login-input" type="password" onChange={this.update("password")} />
           <input className="login-submit" type="submit" value="LOG IN" />
