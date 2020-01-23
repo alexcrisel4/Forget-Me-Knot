@@ -9,6 +9,15 @@ class Api::NotesController < ApplicationController
     end
   end 
 
+  def show 
+    @note = Note.find_by(params[:id])
+    if @note 
+      render :show 
+    else 
+      render json: @note.errors.full_messages, status: 404
+    end
+  end 
+
   def index 
    @notes = Note.find_by(params[:author_id])
   end 
@@ -23,7 +32,11 @@ class Api::NotesController < ApplicationController
 
   def update
     @note = Note.find_by(params[:id])
-    
+    if @note.update(note_params) 
+      render :show
+    else 
+      render json: @note.errors.full_messages
+    end
   end 
 
   private 
