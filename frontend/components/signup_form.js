@@ -31,20 +31,39 @@ class SignupForm extends React.Component {
   
   render() {
     return(
-      <div>
-      <h2>Welcome to Forget Me Knot</h2>
-      <form className="email-form" onSubmit={this.handleSubmit}>
+      // <div>
+      // <h2>Welcome to Forget Me Knot</h2>
+      // <form className="email-form" onSubmit={this.handleSubmit}>
        
-        <label htmlFor="email">Email: </label>
-        <input id="email" type="text" placeholder="email@email.com" onChange={this.update("email")} />
-        <label htmlFor="username">Username:</label>
-        <input id="username" type="text" placeholder="username" onChange={this.update("username")} />
-        <label htmlFor="password">Password:</label>
-        <input id="password" type="password" placeholder="password" onChange={this.update("password")} />
-        <input className="next" type="submit" value="Sign Up" />
-      </form>
-      <div>Already a user?</div>
-      <Link to="/login" >Login</Link>
+      //   <label htmlFor="email">Email: </label>
+      //   <input id="email" type="text" placeholder="email@email.com" onChange={this.update("email")} />
+      //   <label htmlFor="username">Username:</label>
+      //   <input id="username" type="text" placeholder="username" onChange={this.update("username")} />
+      //   <label htmlFor="password">Password:</label>
+      //   <input id="password" type="password" placeholder="password" onChange={this.update("password")} />
+      //   <input className="next" type="submit" value="Sign Up" />
+      // </form>
+      // <div>Already a user?</div>
+      // <Link to="/login" >Login</Link>
+      // </div>
+      <div className="login-form-container">
+        <form className="login-form" onSubmit={this.handleSubmit}>
+          <div className="logo"></div>
+          <h2>Sign up</h2>
+          <div>Use your Google Account</div>
+          <div className="login-input-container">
+            <input className="login-input" type="text" placeholder="Email" onChange={this.update("email")} />
+            <input className="login-input" type="password" placeholder="Password" onChange={this.update("password")} />
+          </div>
+          <div className="login-submit-container">
+            <button className="login-submit" onClick={this.handleDemo} >Demo</button>
+            <button className="login-submit next" >Next</button>
+
+            {/* <input className="login-submit" type="submit" value="Next" />
+          <input className="login-submit" type="submit" onClick={this.handleDemo} value="DEMO LOGIN" /> */}
+          </div>
+        </form>
+        <p>Already Have an account? <Link to="/login">Login</Link></p>
       </div>
     )
   }

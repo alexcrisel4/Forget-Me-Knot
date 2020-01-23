@@ -170,6 +170,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _splash__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./splash */ "./frontend/components/splash.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.js");
+/* harmony import */ var _home_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./home_container */ "./frontend/components/home_container.js");
+
 
 
 
@@ -183,17 +185,92 @@ var App = function App() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
     exact: true,
     path: "/",
-    component: _login_container__WEBPACK_IMPORTED_MODULE_2__["default"]
+    component: _signup_container__WEBPACK_IMPORTED_MODULE_1__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
     path: "/login",
     component: _login_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
     path: "/signup",
     component: _signup_container__WEBPACK_IMPORTED_MODULE_1__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["ProtectedRoute"], {
+    path: "/home",
+    component: _home_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   })));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./frontend/components/home.js":
+/*!*************************************!*\
+  !*** ./frontend/components/home.js ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Home = function Home(_ref) {
+  var logout = _ref.logout;
+
+  var handleSubmit = function handleSubmit() {
+    logout();
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "home-screen"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "hamburger"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "hamburger"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "hamburger"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    className: "logout",
+    onClick: handleSubmit
+  }, "Log Out"));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Home);
+
+/***/ }),
+
+/***/ "./frontend/components/home_container.js":
+/*!***********************************************!*\
+  !*** ./frontend/components/home_container.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home */ "./frontend/components/home.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+
+
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    errors: state.errors.session
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    logout: function logout(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])(user));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_home__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -292,7 +369,8 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault;
       var user = Object.assign({}, this.state);
-      this.props.processForm(user); // this.props.history.push("/home")
+      this.props.processForm(user);
+      this.props.history.push("/home");
     }
   }, {
     key: "update",
@@ -505,37 +583,50 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Welcome to Forget Me Knot"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "email-form",
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "email"
-      }, "Email: "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "email",
-        type: "text",
-        placeholder: "email@email.com",
-        onChange: this.update("email")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "username"
-      }, "Username:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "username",
-        type: "text",
-        placeholder: "username",
-        onChange: this.update("username")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        htmlFor: "password"
-      }, "Password:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        id: "password",
-        type: "password",
-        placeholder: "password",
-        onChange: this.update("password")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "next",
-        type: "submit",
-        value: "Sign Up"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Already a user?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/login"
-      }, "Login"));
+      return (// <div>
+        // <h2>Welcome to Forget Me Knot</h2>
+        // <form className="email-form" onSubmit={this.handleSubmit}>
+        //   <label htmlFor="email">Email: </label>
+        //   <input id="email" type="text" placeholder="email@email.com" onChange={this.update("email")} />
+        //   <label htmlFor="username">Username:</label>
+        //   <input id="username" type="text" placeholder="username" onChange={this.update("username")} />
+        //   <label htmlFor="password">Password:</label>
+        //   <input id="password" type="password" placeholder="password" onChange={this.update("password")} />
+        //   <input className="next" type="submit" value="Sign Up" />
+        // </form>
+        // <div>Already a user?</div>
+        // <Link to="/login" >Login</Link>
+        // </div>
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "login-form-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          className: "login-form",
+          onSubmit: this.handleSubmit
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "logo"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Sign up"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Use your Google Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "login-input-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "login-input",
+          type: "text",
+          placeholder: "Email",
+          onChange: this.update("email")
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "login-input",
+          type: "password",
+          placeholder: "Password",
+          onChange: this.update("password")
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "login-submit-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "login-submit",
+          onClick: this.handleDemo
+        }, "Demo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "login-submit next"
+        }, "Next"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Already Have an account? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+          to: "/login"
+        }, "Login")))
+      );
     }
   }]);
 
