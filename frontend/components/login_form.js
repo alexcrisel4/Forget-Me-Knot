@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
     e.preventDefault;
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-   
+    // this.props.history.push("/home")
   }
 
   update(field) {
@@ -38,15 +38,22 @@ class LoginForm extends React.Component {
     return (
       <div className="login-form-container">
         <form className="login-form" onSubmit={this.handleSubmit}>
-          <h3>Log in</h3>
-          <label htmlFor="login-email">Email/Username</label>
-          <input id="login-email" className="login-input" type="text" placeholder="email@email.com" onChange={this.update("email")} />
-          <label htmlFor="login-password" >Password</label>
-          <input id="login-password" className="login-input" type="password" onChange={this.update("password")} />
-          <input className="login-submit" type="submit" value="LOG IN" />
-          <input className="login-submit" type="submit" onClick={this.handleDemo} value="DEMO LOGIN" />
-          <p>Don't have an account? <Link to="/signup">Click Here</Link> to sign up</p>
+          <div className="logo"></div>
+          <h2>Sign in</h2>
+          <div>Use your Google Account</div>
+          <div className="login-input-container">
+            <input className="login-input" type="text" placeholder="Email" onChange={this.update("email")} />
+            <input className="login-input" type="password" placeholder="Password" onChange={this.update("password")} />
+          </div>
+          <div className="login-submit-container">
+            <button className="login-submit" onClick={this.handleDemo} >Demo</button>
+            <button className="login-submit next" >Next</button>
+            
+          {/* <input className="login-submit" type="submit" value="Next" />
+          <input className="login-submit" type="submit" onClick={this.handleDemo} value="DEMO LOGIN" /> */}
+          </div>
         </form>
+        <p>Don't have an account? <Link to="/signup">Create account</Link></p>
       </div>
     )
   }

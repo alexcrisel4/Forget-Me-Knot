@@ -3,6 +3,7 @@ h1 {
   background-color: lightblue;
   border-radius: 4px;
   padding: 20px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .signup-note {
@@ -31,5 +32,87 @@ h1 {
   height: 200px;
   margin-left: 10px;
   
+}
+
+
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  border: .5px solid #e0e0e0;
+  border-radius: 8px;
+  width: 40%;
+  height: 500px;
+  font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+  margin: auto;
+  color: #202124;
+  padding: 48px 40px 36px;
+  
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+
+.login-input {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 8px;
+  border-style: none;
+  border: .5px solid #e0e0e0;
+}
+
+.login-input::placeholder {
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.login-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+}
+
+.login-submit-container {
+  display: flex;
+  margin-top: 60px;
+  align-content: space-around;
+  
+  // align-items: flex-end;
+  width: 100%;
+}
+
+.login-submit {
+  background: #1a73e8;;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 40%;
+  height: 40px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.next {
+  // align-self: flex-end;
+  margin-left: 180px;
+}
+
+.login-submit:hover {
+  background: #498de6;
+  transition: .75sec;
+}
+
+.logo {
+ 
+  background-image: url(alexlogo.png);
+ height: 50px;
+  width: 40px;
+background-size: cover
 }
 

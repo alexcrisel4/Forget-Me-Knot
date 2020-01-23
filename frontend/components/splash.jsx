@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 
 const Splash = props => {
   return (
+
+
     <div>
         <h1>Welcome to Forget Me Knot</h1>
         <div className="splash-container">
