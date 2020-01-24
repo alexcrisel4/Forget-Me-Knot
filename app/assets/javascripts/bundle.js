@@ -294,6 +294,10 @@ var App = function App() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _notes_note_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./notes/note_form */ "./frontend/components/notes/note_form.jsx");
+
+
 
 
 var Home = function Home(_ref) {
@@ -314,7 +318,7 @@ var Home = function Home(_ref) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "logout",
     onClick: handleSubmit
-  }, "Log Out"));
+  }, "Log Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_notes_note_form__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
@@ -337,9 +341,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(_ref) {
+  var session = _ref.session;
   return {
-    errors: state.errors.session
+    currentUser: session.currentUser
   };
 };
 
@@ -438,6 +443,7 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginForm).call(this, props));
     _this.state = {
       email: "",
+      username: "",
       password: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -468,6 +474,7 @@ function (_React$Component) {
       e.preventDefault;
       var user = {
         email: "demo@demouser.com",
+        username: "demouser",
         password: "demouser"
       };
       this.props.processForm(user);
@@ -491,6 +498,11 @@ function (_React$Component) {
         onChange: this.update("email")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "login-input",
+        type: "text",
+        placeholder: "Username",
+        onChange: this.update("username")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "login-input",
         type: "password",
         placeholder: "Password",
         onChange: this.update("password")
@@ -511,6 +523,108 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 /* harmony default export */ __webpack_exports__["default"] = (LoginForm);
+
+/***/ }),
+
+/***/ "./frontend/components/notes/note_form.jsx":
+/*!*************************************************!*\
+  !*** ./frontend/components/notes/note_form.jsx ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var NoteForm =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(NoteForm, _React$Component);
+
+  function NoteForm(props) {
+    var _this;
+
+    _classCallCheck(this, NoteForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NoteForm).call(this, props));
+    _this.state = _this.props.formDefault;
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(NoteForm, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        e.preventDefault();
+
+        _this2.setState(_defineProperty({}, field, e.target.value));
+      };
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault;
+      var note = Object.assign({}, this.state);
+      this.props.createNote(note);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "note-form-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "note-form",
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "title",
+        type: "text",
+        onChange: this.update("title"),
+        placeholder: "Title"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "body",
+        type: "text",
+        onChange: this.update("body"),
+        placeholder: "Take a note..."
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleSubmit
+      }, "Close")));
+    }
+  }]);
+
+  return NoteForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (NoteForm);
 
 /***/ }),
 
@@ -694,15 +808,17 @@ function (_React$Component) {
           onChange: this.update("email")
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "login-input",
+          type: "text",
+          placeholder: "Username",
+          onChange: this.update("username")
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "login-input",
           type: "password",
           placeholder: "Password",
           onChange: this.update("password")
         })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "login-submit-container"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "login-submit",
-          onClick: this.handleDemo
-        }, "Demo"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "login-submit next"
         }, "Next"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Already Have an account? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
           to: "/login"
@@ -867,7 +983,7 @@ var notesReducer = function notesReducer() {
   var newState;
 
   switch (action.type) {
-    case _actions_note_actions__WEBPACK_IMPORTED_MODULE_0__["RECIEVE_NOTES"]:
+    case _actions_note_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_NOTES"]:
       newState = Object.assign({}, state, action.notes);
       return newState;
 
@@ -875,7 +991,7 @@ var notesReducer = function notesReducer() {
       newState = Object.assign({}, state, _defineProperty({}, action.payload.note.id, action.payload.note));
       return newState;
 
-    case REMOVE_QUIZ:
+    case _actions_note_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_NOTE"]:
       newState = Object.assign({}, state);
       delete newState[action.payload.note.id];
       return newState;

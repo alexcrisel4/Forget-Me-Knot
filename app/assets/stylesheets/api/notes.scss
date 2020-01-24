@@ -1,3 +1,55 @@
 // Place all the styles related to the api/notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.note-form-container {
+display: flex;
+flex-direction: column;
+text-align: center;
+
+}
+
+.title {
+  border-bottom: none;
+}
+
+.body {
+  border-top: none;
+}
+.input-box{
+  display: flex;
+  flex-direction: column;
+  border: .5px solid darkgrey;
+  border-radius: 6px;
+  padding: 1px;
+}
+.note-form {
+  
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  align-self: center;
+  color: #e8eaed;
+  input {
+    background-color: rgba(0, 0, 0, 0.872);
+    border: none;
+    padding: 15px;
+    // border-radius: 6px;
+    color: lightgray;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 14px;
+   
+  } 
+  button {
+    background: none;
+    border: none;
+    color: lightgray;
+    cursor: pointer;
+    width: fit-content;
+    
+  }
+}
+
+
+

@@ -53,14 +53,13 @@ class SignupForm extends React.Component {
           <div>Use your Google Account</div>
           <div className="login-input-container">
             <input className="login-input" type="text" placeholder="Email" onChange={this.update("email")} />
+            <input className="login-input" type="text" placeholder="Username" onChange={this.update("username")} />
+
             <input className="login-input" type="password" placeholder="Password" onChange={this.update("password")} />
           </div>
           <div className="login-submit-container">
-            <button className="login-submit" onClick={this.handleDemo} >Demo</button>
+            {/* <button className="login-submit" onClick={this.handleDemo} >Demo</button> */}
             <button className="login-submit next" >Next</button>
-
-            {/* <input className="login-submit" type="submit" value="Next" />
-          <input className="login-submit" type="submit" onClick={this.handleDemo} value="DEMO LOGIN" /> */}
           </div>
         </form>
         <p>Already Have an account? <Link to="/login">Login</Link></p>

@@ -5,6 +5,7 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       email: "",
+      username: "",
       password: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -27,6 +28,7 @@ class LoginForm extends React.Component {
     e.preventDefault;
     let user = {
       email: "demo@demouser.com",
+      username: "demouser",
       password: "demouser"
     }
     this.props.processForm(user);
@@ -43,6 +45,7 @@ class LoginForm extends React.Component {
           <div>Use your Google Account</div>
           <div className="login-input-container">
             <input className="login-input" type="text" placeholder="Email" onChange={this.update("email")} />
+            <input className="login-input" type="text" placeholder="Username" onChange={this.update("username")} />
             <input className="login-input" type="password" placeholder="Password" onChange={this.update("password")} />
           </div>
           <div className="login-submit-container">
