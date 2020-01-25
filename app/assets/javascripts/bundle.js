@@ -283,10 +283,10 @@ var App = function App() {
 
 /***/ }),
 
-/***/ "./frontend/components/home.js":
-/*!*************************************!*\
-  !*** ./frontend/components/home.js ***!
-  \*************************************/
+/***/ "./frontend/components/home.jsx":
+/*!**************************************!*\
+  !*** ./frontend/components/home.jsx ***!
+  \**************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -296,6 +296,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _notes_note_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./notes/note_form */ "./frontend/components/notes/note_form.jsx");
+/* harmony import */ var _notes_note_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notes/note_index */ "./frontend/components/notes/note_index.jsx");
+
 
 
 
@@ -318,7 +320,7 @@ var Home = function Home(_ref) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "logout",
     onClick: handleSubmit
-  }, "Log Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_notes_note_form__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+  }, "Log Out"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_notes_note_form__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_notes_note_index__WEBPACK_IMPORTED_MODULE_3__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);
@@ -335,7 +337,7 @@ var Home = function Home(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home */ "./frontend/components/home.js");
+/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home */ "./frontend/components/home.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 
 
@@ -370,7 +372,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _login_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login_form */ "./frontend/components/login_form.js");
+/* harmony import */ var _login_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./login_form */ "./frontend/components/login_form.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 
 
@@ -395,10 +397,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
-/***/ "./frontend/components/login_form.js":
-/*!*******************************************!*\
-  !*** ./frontend/components/login_form.js ***!
-  \*******************************************/
+/***/ "./frontend/components/login_form.jsx":
+/*!********************************************!*\
+  !*** ./frontend/components/login_form.jsx ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -628,6 +630,101 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./frontend/components/notes/note_index.jsx":
+/*!**************************************************!*\
+  !*** ./frontend/components/notes/note_index.jsx ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _note_index_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./note_index_item */ "./frontend/components/notes/note_index_item.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var NoteIndex =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(NoteIndex, _React$Component);
+
+  function NoteIndex(props) {
+    _classCallCheck(this, NoteIndex);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(NoteIndex).call(this, props));
+  }
+
+  _createClass(NoteIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchNotes();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var notes = this.props.notes.map(function (note, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_note_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          key: i,
+          note: note
+        }));
+      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "index-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, notes));
+    }
+  }]);
+
+  return NoteIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (NoteIndex);
+
+/***/ }),
+
+/***/ "./frontend/components/notes/note_index_item.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/notes/note_index_item.jsx ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var NoteIndexItem = function NoteIndexItem(_ref) {
+  var note = _ref.note;
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", null, note.title), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, note.body));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NoteIndexItem);
+
+/***/ }),
+
 /***/ "./frontend/components/root.jsx":
 /*!**************************************!*\
   !*** ./frontend/components/root.jsx ***!
@@ -668,7 +765,7 @@ var Root = function Root(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _signup_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./signup_form */ "./frontend/components/signup_form.js");
+/* harmony import */ var _signup_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./signup_form */ "./frontend/components/signup_form.jsx");
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
@@ -696,10 +793,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
-/***/ "./frontend/components/signup_form.js":
-/*!********************************************!*\
-  !*** ./frontend/components/signup_form.js ***!
-  \********************************************/
+/***/ "./frontend/components/signup_form.jsx":
+/*!*********************************************!*\
+  !*** ./frontend/components/signup_form.jsx ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
