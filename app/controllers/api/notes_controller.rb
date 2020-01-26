@@ -20,6 +20,7 @@ class Api::NotesController < ApplicationController
 
   def index 
    @notes = Note.find_by(params[:author_id])
+   render :index
   end 
 
   def destroy

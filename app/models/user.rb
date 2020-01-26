@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token 
 
-  has_many :quizzes, 
+  has_many :notes, 
     primary_key: :id, 
     foreign_key: :author_id
 
