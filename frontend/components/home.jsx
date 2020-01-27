@@ -14,20 +14,24 @@ class Home extends React.Component {
 // const Home = ({ logout }) => { 
 
 handleSubmit(e) {
-  e.prevventDefault;
-  logout()
+  e.preventDefault;
+  this.props.logout()
 }
 render() {
   return (
     <div className="home-screen">
 
-
+      <div className='nav'>
+      <div className="menu">
       <div className="hamburger"></div>
       <div className="hamburger"></div>
       <div className="hamburger"></div>
-      <button className='logout' onClick={this.handleSubmit}>Log Out</button>
+      </div>  
+      <div className="current-user">{this.props.currentUser}</div>
+      <button className='logout' onClick={this.handleSubmit}><i class="fas fa-sign-out-alt"></i></button>
+      </div>
       <NoteForm />
-      <NoteIndex />
+      {/* <NoteIndex /> */}
     </div>
 
   )

@@ -18,8 +18,10 @@ class SignupForm extends React.Component {
 
     e.preventDefault();
       const user = Object.assign({}, this.state.user);
-      this.props.processForm(user);
-      this.props.history.push("/home")
+    this.props.processForm(user)
+    this.props.history.push("/home")
+      
+      
   }
 
   update(field) {
@@ -31,21 +33,7 @@ class SignupForm extends React.Component {
   
   render() {
     return(
-      // <div>
-      // <h2>Welcome to Forget Me Knot</h2>
-      // <form className="email-form" onSubmit={this.handleSubmit}>
-       
-      //   <label htmlFor="email">Email: </label>
-      //   <input id="email" type="text" placeholder="email@email.com" onChange={this.update("email")} />
-      //   <label htmlFor="username">Username:</label>
-      //   <input id="username" type="text" placeholder="username" onChange={this.update("username")} />
-      //   <label htmlFor="password">Password:</label>
-      //   <input id="password" type="password" placeholder="password" onChange={this.update("password")} />
-      //   <input className="next" type="submit" value="Sign Up" />
-      // </form>
-      // <div>Already a user?</div>
-      // <Link to="/login" >Login</Link>
-      // </div>
+
       <div className="login-form-container">
         <form className="login-form" onSubmit={this.handleSubmit}>
           <div className="logo"></div>
