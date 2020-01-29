@@ -6,6 +6,7 @@
 overflow: wrap;
   width: 200px;
   height: 200px;
+  margin: 10px;
 }
 
 .index-container {
@@ -17,5 +18,5 @@ overflow: wrap;
 ul {
   list-style-type: none;
   display: flex;
-  overflow: wrap;
+  flex-wrap: wrap;
 }
