@@ -14,27 +14,34 @@ text-align: center;
   border-bottom: none;
 }
 
-.body {
-  border-top: none;
-}
 .input-box{
+   height: 10vh;
   display: flex;
   flex-direction: column;
   border: .5px solid darkgrey;
   border-radius: 6px;
   padding: 1px;
 }
+.input-box:focus-within {
+  height: 20vh;
+  input{
+    padding: 15px;
+  }
+}
+
+
 .note-form {
-  
+ 
   display: flex;
   flex-direction: column;
   width: 60%;
   align-self: center;
   color: #e8eaed;
   input {
-    background-color: rgba(0, 0, 0, 0.872);
+    background-color: rgb(65, 65, 65);
     border: none;
-    padding: 15px;
+    // padding: 15px;
+    height: 50%;
     // border-radius: 6px;
     color: lightgray;
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
@@ -50,6 +57,15 @@ text-align: center;
     width: fit-content;
     
   }
+}
+
+
+.body {
+  border-top: none;
+  // height: 0;
+  padding: 0;
+  transform: scale(0);
+  
 }
 
 

@@ -627,7 +627,14 @@ function (_React$Component) {
     _classCallCheck(this, NoteForm);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(NoteForm).call(this, props));
-    _this.state = _this.props.formDefault;
+    _this.state = {
+      formDefault: {
+        title: _this.props.formDefault.title,
+        body: _this.props.formDefault.body,
+        author_id: _this.props.Default.author_id
+      },
+      open: false
+    };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -640,40 +647,60 @@ function (_React$Component) {
       return function (e) {
         e.preventDefault();
 
-        _this2.setState(_defineProperty({}, field, e.target.value));
+        _this2.setState({
+          formDefault: _defineProperty({}, field, e.target.value)
+        });
       };
+    }
+  }, {
+    key: "toggle",
+    value: function toggle() {
+      if (this.state.open) {
+        setState({
+          open: false
+        });
+      } else {
+        this.setState({
+          open: true
+        });
+      }
     }
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault;
-      var note = Object.assign({}, this.state);
+      e.preventDefault();
+      var note = Object.assign({}, this.state.formDefault);
+      console.log("submit-note");
       this.props.createNote(note);
     }
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "note-form-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "note-form",
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-box"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "title",
-        type: "text",
-        onChange: this.update("title"),
-        placeholder: "Title"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "body",
-        type: "text",
-        onChange: this.update("body"),
-        placeholder: "Take a note..."
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "close",
-        onClick: this.handleSubmit
-      }, "Close")));
+      if (this.state.open) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "note-form-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+          className: "note-form",
+          onSubmit: this.handleSubmit
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "input-box"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "title",
+          type: "text",
+          onChange: this.update("title"),
+          placeholder: "Title"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          className: "body",
+          type: "text",
+          onChange: this.update("body"),
+          placeholder: "Take a note..."
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "close",
+          onClick: this.handleSubmit
+        }, "Create")));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
     }
   }]);
 
@@ -847,7 +874,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
-
+ // class NoteIndexItem extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = this.props.notes;
+//   }
+//   render() {
+//     return(
+//       <div className="note-container">
+//       <h2>{note.title}</h2>
+//       <p>{note.body}</p>
+//       <Link to=""><i class="fas fa-edit"></i></Link>
+//       <button onClick={this.props.delete(this.state.notes.i)}><i class="fa fa-trash"></i></button>
+//     </div>
+//     )
+//   }
+// }
 
 var NoteIndexItem = function NoteIndexItem(_ref) {
   var note = _ref.note;
@@ -857,6 +899,8 @@ var NoteIndexItem = function NoteIndexItem(_ref) {
     to: ""
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
     "class": "fas fa-edit"
+  })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
+    "class": "fa fa-trash"
   })));
 };
 

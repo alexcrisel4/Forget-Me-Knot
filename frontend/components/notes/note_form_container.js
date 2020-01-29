@@ -9,6 +9,7 @@ const mapStateToProps = state => {
       body: "",
       author_id: state.session.id,
     }
+    
   })
 }
 

@@ -1,22 +1,33 @@
 
-
+div {
+  overflow: scroll;
+}
+// #root {
+//   overflow: scroll;
+// }
 .note-container {
   display: inline-block;
   border: 1px solid lightgray;
-overflow: wrap;
+  overflow: visible;
   width: 200px;
-  height: 200px;
+  min-height: 200px;
   margin: 10px;
+  border-radius: 4px;
+  color: lightgray;
 }
 
 .index-container {
   display: flex;
     list-style-type: none;
-    overflow: wrap;
+    overflow: visible;
 }
 
 ul {
+  overflow: visible;
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+
 }
