@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import NoteForm from './notes/note_form'
-import NoteIndex from './notes/note_index'
+import NoteForm from './notes/note_form_container'
+import NoteIndex from './notes/note_index_container'
 
 
 
@@ -22,16 +22,19 @@ render() {
     <div className="home-screen">
 
       <div className='nav'>
+
       <div className="menu">
       <div className="hamburger"></div>
       <div className="hamburger"></div>
       <div className="hamburger"></div>
       </div>  
+      <div className="nav-logo"></div>
+      <div className="title">Forget Me Knot</div>
       <div className="current-user">{this.props.currentUser}</div>
-      <button className='logout' onClick={this.handleSubmit}><i class="fas fa-sign-out-alt"></i></button>
+      <button className='logout' onClick={this.handleSubmit}><i className="fas fa-sign-out-alt"></i></button>
       </div>
       <NoteForm />
-      {/* <NoteIndex /> */}
+      <NoteIndex />
     </div>
 
   )

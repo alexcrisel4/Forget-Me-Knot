@@ -23,6 +23,7 @@ class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault;
+   
     const note = Object.assign({}, this.state);
     this.props.createNote(note)
   }
@@ -35,7 +36,7 @@ class NoteForm extends React.Component {
             <input className ="title" type="text" onChange={this.update("title")} placeholder="Title" />
             <input className="body" type="text" onChange={this.update("body")} placeholder="Take a note..." />
           </div>
-          <button onClick={this.handleSubmit}>Close</button>
+          <button className="close" onClick={this.handleSubmit}>Close</button>
         </form>
       </div>
     )

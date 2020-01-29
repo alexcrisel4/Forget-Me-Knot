@@ -2,7 +2,7 @@ class Api::NotesController < ApplicationController
 
   def create 
     @note = Note.new(note_params)
-    if note.save
+    if @note.save
       render :show
     else 
       render json: @note.errors.full_messages, status: 404
@@ -19,7 +19,7 @@ class Api::NotesController < ApplicationController
   end 
 
   def index 
-   @notes = Note.find_by(params[:author_id])
+   @notes = Note.all
    render :index
   end 
 

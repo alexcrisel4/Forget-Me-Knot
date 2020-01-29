@@ -1,0 +1,21 @@
+
+
+.note-container {
+  display: inline-block;
+  border: 1px solid lightgray;
+overflow: wrap;
+  width: 200px;
+  height: 200px;
+}
+
+.index-container {
+  display: flex;
+    list-style-type: none;
+    overflow: wrap;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  overflow: wrap;
+}

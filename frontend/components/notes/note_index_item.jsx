@@ -3,9 +3,10 @@ import React from 'react';
 
 const NoteIndexItem = ({ note }) => {
   return (
-    <div>
+    <div className="note-container">
       <h2>{note.title}</h2>
       <p>{note.body}</p>
+      <Link to=""><i class="fas fa-edit"></i></Link>
     </div>
   )
 }

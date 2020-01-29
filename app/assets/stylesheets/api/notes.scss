@@ -28,7 +28,7 @@ text-align: center;
   
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 60%;
   align-self: center;
   color: #e8eaed;
   input {
@@ -39,6 +39,7 @@ text-align: center;
     color: lightgray;
     font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
     font-size: 14px;
+    outline: none;
    
   } 
   button {
@@ -50,6 +51,8 @@ text-align: center;
     
   }
 }
+
+
 
 
 

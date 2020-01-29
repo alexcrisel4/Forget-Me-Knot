@@ -46,7 +46,7 @@ h1 {
   margin: auto;
   color: #202124;
   padding: 48px 40px 36px;
-  
+  margin-top: 20px;
 }
 
 .login-form {
@@ -63,6 +63,7 @@ h1 {
   border-radius: 8px;
   border-style: none;
   border: .5px solid #e0e0e0;
+  font-size: 20px;
 }
 
 .login-input::placeholder {
@@ -79,7 +80,7 @@ h1 {
 
 .login-submit-container {
   display: flex;
-  margin-top: 60px;
+  margin-top: 35px;
   align-content: space-around;
   
   // align-items: flex-end;
@@ -109,10 +110,9 @@ h1 {
 }
 
 .logo {
- 
   background-image: url(alexlogo.png);
- height: 50px;
+  height: 50px;
   width: 40px;
-background-size: cover
+  background-size: cover
 }
 

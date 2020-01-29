@@ -13,6 +13,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
+
   return ({
     createNote: (note) => dispatch(createNote(note))
   })

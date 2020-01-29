@@ -4,8 +4,25 @@
   height: 2px;
   background-color: white;
   margin: 6px 20px;
+  // cursor: pointer;
+}
+
+.menu {
   cursor: pointer;
 }
+
+.nav-logo {
+  background-image: url(alexlogo.png);
+  height: 20px;
+  width: 20px;
+  color: white;
+
+}
+
+.title {
+  color: lightgray;
+}
+
 
 .home-screen {
    position: fixed;
@@ -17,12 +34,14 @@
     z-index: 10;
 }
 .nav {
+  margin-top: 10px;
   display: flex;
   justify-content: space-between;
 }
 .logout {
 justify-self: right;
 margin-right: 20px;
+cursor: pointer;
 }
 .current-user {
   color: white;
