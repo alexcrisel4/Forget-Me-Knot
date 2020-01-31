@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import OffClick from 'react-offclick';
+import onClickOutside from 'react-onclickoutside';
 
 class NoteForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       formDefault: {
-        title: this.props.formDefault.title,
-        body: this.props.formDefault.body,
-        author_id: this.props.formDefault.author_id
+        title: "",
+        body: "",
+        author_id: this.props.author_id
       },
       open: false
     };
@@ -19,7 +19,6 @@ class NoteForm extends React.Component {
   }
 
   update(field) {
-
     return e => {
       e.preventDefault()
       this.setState({
@@ -29,12 +28,15 @@ class NoteForm extends React.Component {
   }
 
   toggle() {
-    console.log(this.state.open)
     if(this.state.open) {
       this.setState({open: false})
     } else {
       this.setState({open: true})
     }
+  }
+
+  handleClickOutside() {
+    this.toggle();
   }
 
   handleSubmit(e) {
@@ -64,10 +66,6 @@ class NoteForm extends React.Component {
     return output;
   }
 
-
-
-   
-
   render() {
     
     return (
@@ -84,4 +82,4 @@ class NoteForm extends React.Component {
   
 }
 
-export default NoteForm
+export default onClickOutside(NoteForm)

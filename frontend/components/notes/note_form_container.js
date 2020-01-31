@@ -4,11 +4,9 @@ import { createNote } from '../../actions/note_actions';
 
 const mapStateToProps = state => {
   return ({
-    formDefault: {
-      title: "",
-      body: "",
+  
       author_id: state.session.id,
-    }
+    
     
   })
 }

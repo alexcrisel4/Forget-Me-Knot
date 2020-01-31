@@ -4,12 +4,10 @@
 
 
 .note-form-container {
-display: flex;
-flex-direction: column;
+display: inline-block;
 text-align: center;
 box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
-width: 100%;
-// background-color: red;
+width: 60%;
 height: fit-content;
 }
 .title {
@@ -28,19 +26,14 @@ height: fit-content;
   border-radius: 6px;
   padding: 1px;
 }
-// .input-box:focus-within {
-//   height: 20vh;
-//   input{
-//     padding: 15px;
-//   }
-// }
+
 
 
 .note-form {
  
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 100%;
   align-self: center;
   color: #e8eaed;
   input {
