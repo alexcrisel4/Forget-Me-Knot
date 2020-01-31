@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import UpdateForm from './note_form';
-import { updateNote } from '../../actions/note_actions';
+import { updateNote, deleteNote } from '../../actions/note_actions';
 
 const mapStateToProps = state => {
   return ({
@@ -14,7 +14,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    updateNote: (note) => dispatch(updateNote(note))
+    updateNote: (note) => dispatch(updateNote(note)),
+    deleteNote: (id) => dispatch(deleteNote(id))
   })
 }
 

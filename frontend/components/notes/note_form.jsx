@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import OffClick from 'react-offclick';
 
 class NoteForm extends React.Component {
   constructor(props) {
@@ -8,13 +9,13 @@ class NoteForm extends React.Component {
       formDefault: {
         title: this.props.formDefault.title,
         body: this.props.formDefault.body,
-        author_id: this.props.Default.author_id,
+        author_id: this.props.formDefault.author_id
       },
       open: false
     };
-
+    this.getOutput = this.getOutput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.toggle = this.toggle.bind(this);
   }
 
   update(field) {
@@ -28,8 +29,9 @@ class NoteForm extends React.Component {
   }
 
   toggle() {
+    console.log(this.state.open)
     if(this.state.open) {
-      setState({open: false})
+      this.setState({open: false})
     } else {
       this.setState({open: true})
     }
@@ -42,26 +44,44 @@ class NoteForm extends React.Component {
     this.props.createNote(note)
   }
 
-  render() {
-    if(this.state.open) {
-      return (
-        <div className="note-form-container">
-          <form className="note-form" onSubmit={this.handleSubmit}>
-            <div className="input-box">
-              <input className="title" type="text" onChange={this.update("title")} placeholder="Title" />
-              <input className="body" type="text" onChange={this.update("body")} placeholder="Take a note..." />
-            </div>
-            <button className="close" onClick={this.handleSubmit}>Create</button>
-          </form>
+  getOutput() {
+    let output
+    if (this.state.open) {
+      output = (<div className="input-box" >
+          <input className="title" type="text" onChange={this.update("title")} placeholder="Title" />
+          <input className="body" type="text" onChange={this.update("body")} placeholder="Take a note..." />
+          <div className="button-container">
+          
+          <button className="close" onClick={this.handleSubmit}>Create</button>
+          </div>
         </div>
       )
     } else {
-      return (
-        <div></div>
-      )
+      output = (<div className="input-box">
+        <input onFocus={this.toggle} className="body" type="text" onChange={this.update("body")} placeholder="Take a note..." />
+      </div>)
     }
-    
+    return output;
   }
+
+
+
+   
+
+  render() {
+    
+    return (
+      <div   className="note-form-container">
+        <form className="note-form" onSubmit={this.handleSubmit}>
+          <div>{this.getOutput()}</div>
+        </form>
+      </div>
+      
+    )
+  }
+
+  
+  
 }
 
 export default NoteForm

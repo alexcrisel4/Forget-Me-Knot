@@ -4,7 +4,8 @@ import LoginContainer from './login_container';
 import Splash from './splash'
 import { Route, Switch}  from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import HomeContainer from './home_container'
+import HomeContainer from './home_container';
+import UpdateContainer from './notes/update_note_container'
 
 const App = () => (
   <div className="app-container">
@@ -16,6 +17,7 @@ const App = () => (
       <AuthRoute path="/login" component={LoginContainer} />
       <AuthRoute path="/signup" component={SignupContainer} />
       <ProtectedRoute path="/home" component={HomeContainer} />
+      <ProtectedRoute  path="/notes/:noteId" component={UpdateContainer}/>
     </Switch>
   
   </div>

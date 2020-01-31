@@ -9,6 +9,8 @@ import React from 'react';
 
   
 //   }
+
+
 //   render() {
 //     return(
 //       <div className="note-container">
@@ -25,12 +27,16 @@ import React from 'react';
 
 const  NoteIndexItem = ({ note }) => {
   return (
-    <div className="note-container">
+    <Link to={`/notes/${note.id}`}>
+    <div  className="note-container">
       <h2>{note.title}</h2>
       <p>{note.body}</p>
-      <Link to=""><i class="fas fa-edit"></i></Link>
-      <button ><i class="fa fa-trash"></i></button>
+      <div className="index-item-buttons">
+      
+      <button><i className="fa fa-trash"></i></button>
+      </div>
     </div>
+    </Link>
   )
 }
 

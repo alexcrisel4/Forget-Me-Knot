@@ -19,7 +19,7 @@ class Api::NotesController < ApplicationController
   end 
 
   def index 
-   @notes = Note.all
+   @notes = Note.all.select{ |note| note.author_id == current_user.id }
    render :index
   end 
 

@@ -7,27 +7,33 @@
 display: flex;
 flex-direction: column;
 text-align: center;
-
+box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+width: 100%;
+// background-color: red;
+height: fit-content;
 }
-
 .title {
   border-bottom: none;
+  padding: 15px;
 }
+// .body {
+//   height: 20vh;
+// }
 
 .input-box{
-   height: 10vh;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   border: .5px solid darkgrey;
   border-radius: 6px;
   padding: 1px;
 }
-.input-box:focus-within {
-  height: 20vh;
-  input{
-    padding: 15px;
-  }
-}
+// .input-box:focus-within {
+//   height: 20vh;
+//   input{
+//     padding: 15px;
+//   }
+// }
 
 
 .note-form {
@@ -38,7 +44,7 @@ text-align: center;
   align-self: center;
   color: #e8eaed;
   input {
-    background-color: rgb(65, 65, 65);
+    background-color: rgb(31, 31, 31);
     border: none;
     // padding: 15px;
     height: 50%;
@@ -49,6 +55,11 @@ text-align: center;
     outline: none;
    
   } 
+
+  input::placeholder {
+    font-size: 16px;
+    font-weight: 700;
+  }
   button {
     background: none;
     border: none;
@@ -62,11 +73,23 @@ text-align: center;
 
 .body {
   border-top: none;
-  // height: 0;
-  padding: 0;
-  transform: scale(0);
+  font-weight: 400;
+  padding: 15px;
+  line-height: 1.25rem;
+  font-size: .875rem;
   
 }
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close {
+ margin-right: 20px;
+ margin-bottom: 10px;
+ font-size: 16px;
+}
+
 
 
 

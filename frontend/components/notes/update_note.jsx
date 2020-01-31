@@ -29,13 +29,14 @@ class UpdateForm extends React.Component {
 
   render() {
     return (
-      <div className="note-form-container">
-        <form className="note-form" onSubmit={this.handleSubmit}>
-          <div className="input-box">
-            <input className="title" type="text" onChange={this.update("title")} placeholder="Title" />
-            <input className="body" type="text" onChange={this.update("body")} placeholder="Take a note..." />
+      <div className="">
+        <form className="" onSubmit={this.handleSubmit}>
+          <div className="">
+            <input className="" type="text" onChange={this.update("title")} placeholder="Title" />
+            <input className="" type="text" onChange={this.update("body")} placeholder="Take a note..." />
           </div>
           <button onClick={this.handleSubmit}>Update</button>
+          <button onClick={this.props.deleteNote()}><i className="fa fa-trash"></i></button>
         </form>
       </div>
     )
