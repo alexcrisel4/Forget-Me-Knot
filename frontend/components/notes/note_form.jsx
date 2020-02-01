@@ -6,12 +6,10 @@ class NoteForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      formDefault: {
         title: "",
         body: "",
-        author_id: this.props.author_id
-      },
-      open: false
+        author_id: this.props.author_id,
+        open: false
     };
     this.getOutput = this.getOutput.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,7 +20,7 @@ class NoteForm extends React.Component {
     return e => {
       e.preventDefault()
       this.setState({
-        formDefault: {[field]: e.target.value}
+        [field]: e.target.value
       })
     }
   }
@@ -41,8 +39,10 @@ class NoteForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const note = Object.assign({}, this.state.formDefault);
-    console.log("submit-note")
+    const note =  { title: this.state.title,
+                    body: this.state.body,     
+                    author_id: this.state.author_id};
+   
     this.props.createNote(note)
   }
 

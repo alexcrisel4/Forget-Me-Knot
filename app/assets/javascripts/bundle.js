@@ -634,11 +634,9 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(NoteForm).call(this, props));
     _this.state = {
-      formDefault: {
-        title: "",
-        body: "",
-        author_id: _this.props.author_id
-      },
+      title: "",
+      body: "",
+      author_id: _this.props.author_id,
       open: false
     };
     _this.getOutput = _this.getOutput.bind(_assertThisInitialized(_this));
@@ -655,9 +653,7 @@ function (_React$Component) {
       return function (e) {
         e.preventDefault();
 
-        _this2.setState({
-          formDefault: _defineProperty({}, field, e.target.value)
-        });
+        _this2.setState(_defineProperty({}, field, e.target.value));
       };
     }
   }, {
@@ -682,8 +678,11 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var note = Object.assign({}, this.state.formDefault);
-      console.log("submit-note");
+      var note = {
+        title: this.state.title,
+        body: this.state.body,
+        author_id: this.state.author_id
+      };
       this.props.createNote(note);
     }
   }, {
