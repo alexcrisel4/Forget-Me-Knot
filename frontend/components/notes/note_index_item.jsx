@@ -31,10 +31,6 @@ const  NoteIndexItem = ({ note }) => {
     <div  className="note-container">
       <h2>{note.title}</h2>
       <p>{note.body}</p>
-      <div className="index-item-buttons">
-      
-      <button><i className="fa fa-trash"></i></button>
-      </div>
     </div>
     </Link>
   )

@@ -10,11 +10,9 @@ class Api::NotesController < ApplicationController
   end 
 
   def show 
-    @note = Note.find_by(params[:id])
+    @note = Note.find_by(id: params[:id])
     if @note 
       render :show 
-    else 
-      render json: @note.errors.full_messages, status: 404
     end
   end 
 
@@ -24,7 +22,7 @@ class Api::NotesController < ApplicationController
   end 
 
   def destroy
-    @note = Note.find_by(params[:id])
+    @note = Note.find_by(id: params[:id])
     if @note
       @note.destroy 
       render :show
@@ -32,18 +30,16 @@ class Api::NotesController < ApplicationController
   end 
 
   def update
-    @note = Note.find_by(params[:id])
-    if @note.update(note_params) 
-      render :show
-    else 
-      render json: @note.errors.full_messages
-    end
+    @note = Note.find(params[:id])
+    @note.update(note_params) 
+    render :show
+   
   end 
 
   private 
 
   def note_params 
-    params.require(:note).permit(:title, :body, :author_id)
+    params.require(:note).permit(:id, :title, :body, :author_id)
   end
 
 end

@@ -4,10 +4,15 @@ import { Link } from 'react-router-dom';
 class UpdateForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = this.props.formDefault;
+   this.state = {
+     title: false,
+     body: false,
+     author_id: this.props.note.author_id,
+     id: this.props.note.id
+   }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   update(field) {
@@ -20,23 +25,41 @@ class UpdateForm extends React.Component {
     }
   }
 
+  componentDidMount () {
+    this.props.fetchNote(this.props.match.params.noteId)
+    .then((note) => {
+      console.log(note);
+        this.setState( {title: note.payload.note.title,
+          body: note.payload.note.body,
+          author_id: note.payload.note.author_id,
+          id: note.payload.note.id})
+    })
+    console.log(this.state);
+  }
+
 
   handleSubmit(e) {
-    e.preventDefault;
-    const note = Object.assign({}, this.state);
-    this.props.updateNote(note)
+    e.preventDefault();
+    console.log(this.state);
+    this.props.updateNote(this.state).then(this.props.history.push(`/home`))
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    this.props.deleteNote(this.props.match.params.noteId).then(this.props.history.push('/home'))
   }
 
   render() {
+    if(!this.state.title) return null;
     return (
       <div className="">
-        <form className="" onSubmit={this.handleSubmit}>
+        <form className="" >
           <div className="">
-            <input className="" type="text" onChange={this.update("title")} placeholder="Title" />
-            <input className="" type="text" onChange={this.update("body")} placeholder="Take a note..." />
+            <input className="" type="text" onChange={this.update("title")} value={this.state.title} />
+            <input className="" type="text" onChange={this.update("body")} value={this.state.body} />
           </div>
           <button onClick={this.handleSubmit}>Update</button>
-          <button onClick={this.props.deleteNote()}><i className="fa fa-trash"></i></button>
+          <button onClick={this.handleDelete}><i className="fa fa-trash"></i></button>
         </form>
       </div>
     )

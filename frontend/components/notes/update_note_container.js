@@ -1,21 +1,19 @@
 import { connect } from 'react-redux';
-import UpdateForm from './note_form';
-import { updateNote, deleteNote } from '../../actions/note_actions';
+import UpdateForm from './update_note';
+import { updateNote, deleteNote, fetchNote} from '../../actions/note_actions';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  
   return ({
-    formDefault: {
-      title: "",
-      body: "",
-      author_id: state.session.id,
-    }
+    note: state.entities.notes[ownProps.match.params.noteId]
   })
 }
 
 const mapDispatchToProps = dispatch => {
   return ({
     updateNote: (note) => dispatch(updateNote(note)),
-    deleteNote: (id) => dispatch(deleteNote(id))
+    deleteNote: (id) => dispatch(deleteNote(id)),
+    fetchNote: (id) =>  dispatch(fetchNote(id))
   })
 }
 

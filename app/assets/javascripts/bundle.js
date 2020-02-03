@@ -924,14 +924,145 @@ var NoteIndexItem = function NoteIndexItem(_ref) {
     to: "/notes/".concat(note.id)
   }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "note-container"
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", null, note.title), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, note.body), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-    className: "index-item-buttons"
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", {
-    className: "fa fa-trash"
-  })))));
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", null, note.title), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", null, note.body)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NoteIndexItem);
+
+/***/ }),
+
+/***/ "./frontend/components/notes/update_note.jsx":
+/*!***************************************************!*\
+  !*** ./frontend/components/notes/update_note.jsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var UpdateForm =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(UpdateForm, _React$Component);
+
+  function UpdateForm(props) {
+    var _this;
+
+    _classCallCheck(this, UpdateForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UpdateForm).call(this, props));
+    _this.state = {
+      title: false,
+      body: false,
+      author_id: _this.props.note.author_id,
+      id: _this.props.note.id
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(UpdateForm, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        e.preventDefault();
+
+        _this2.setState(_defineProperty({}, field, e.target.value));
+      };
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this3 = this;
+
+      this.props.fetchNote(this.props.match.params.noteId).then(function (note) {
+        console.log(note);
+
+        _this3.setState({
+          title: note.payload.note.title,
+          body: note.payload.note.body,
+          author_id: note.payload.note.author_id,
+          id: note.payload.note.id
+        });
+      });
+      console.log(this.state);
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      console.log(this.state);
+      this.props.updateNote(this.state).then(this.props.history.push("/home"));
+    }
+  }, {
+    key: "handleDelete",
+    value: function handleDelete(e) {
+      e.preventDefault();
+      this.props.deleteNote(this.props.match.params.noteId).then(this.props.history.push('/home'));
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (!this.state.title) return null;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: ""
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "",
+        type: "text",
+        onChange: this.update("title"),
+        value: this.state.title
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "",
+        type: "text",
+        onChange: this.update("body"),
+        value: this.state.body
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleSubmit
+      }, "Update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        onClick: this.handleDelete
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-trash"
+      }))));
+    }
+  }]);
+
+  return UpdateForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (UpdateForm);
 
 /***/ }),
 
@@ -945,19 +1076,15 @@ var NoteIndexItem = function NoteIndexItem(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _note_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./note_form */ "./frontend/components/notes/note_form.jsx");
+/* harmony import */ var _update_note__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update_note */ "./frontend/components/notes/update_note.jsx");
 /* harmony import */ var _actions_note_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/note_actions */ "./frontend/actions/note_actions.js");
 
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    formDefault: {
-      title: "",
-      body: "",
-      author_id: state.session.id
-    }
+    note: state.entities.notes[ownProps.match.params.noteId]
   };
 };
 
@@ -968,11 +1095,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteNote: function deleteNote(id) {
       return dispatch(Object(_actions_note_actions__WEBPACK_IMPORTED_MODULE_2__["deleteNote"])(id));
+    },
+    fetchNote: function fetchNote(id) {
+      return dispatch(Object(_actions_note_actions__WEBPACK_IMPORTED_MODULE_2__["fetchNote"])(id));
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_note_form__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_update_note__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -1534,7 +1664,7 @@ var createNote = function createNote(note) {
 var updateNote = function updateNote(note) {
   return $.ajax({
     method: "PATCH",
-    url: "/api/notes".concat(note.id),
+    url: "/api/notes/".concat(note.id),
     data: {
       note: note
     }
@@ -1543,7 +1673,7 @@ var updateNote = function updateNote(note) {
 var deleteNote = function deleteNote(id) {
   return $.ajax({
     method: "DELETE",
-    url: "/api/notes".concat(id)
+    url: "/api/notes/".concat(id)
   });
 };
 
