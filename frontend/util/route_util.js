@@ -4,13 +4,13 @@ import { Route, Redirect, withRouter } from 'react-router-dom';
 
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => {
-  debugger;
+ console.log(loggedIn)
   return (
     <Route path={path} exact={exact} render={(props) => (
       !loggedIn ? (
         <Component {...props} />
       ) : (
-          <Redirect to="/" />
+          <Redirect to="/home" />
         )
     )} />
   )
@@ -20,7 +20,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => {
 ;
 
 const Protected = ({ component: Component, path, loggedIn, exact }) => {
-  debugger;
+  console.log(loggedIn)
   return (<Route path={path} exact={exact} render={(props) => (
     loggedIn ? (
       <Component {...props} />
