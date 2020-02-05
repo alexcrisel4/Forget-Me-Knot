@@ -1,4 +1,5 @@
 import { RECEIVE_NOTES, RECEIVE_NOTE, REMOVE_NOTE } from '../actions/note_actions'
+import { LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 const notesReducer = (state = {}, action ) => {
   Object.freeze(state);
@@ -14,6 +15,8 @@ const notesReducer = (state = {}, action ) => {
       newState = Object.assign({}, state);
       delete newState[action.payload.note.id]
       return newState;
+    case LOGOUT_CURRENT_USER: 
+      return {};
     default: 
     return state;
   }

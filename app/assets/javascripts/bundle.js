@@ -683,6 +683,12 @@ function (_React$Component) {
         author_id: this.state.author_id
       };
       this.props.createNote(note);
+      this.setState({
+        title: "",
+        body: "",
+        author_id: this.props.author_id,
+        open: false
+      });
     }
   }, {
     key: "getOutput",
@@ -715,7 +721,6 @@ function (_React$Component) {
           onFocus: this.toggle,
           className: "body",
           type: "text",
-          onChange: this.update("body"),
           placeholder: "Take a note..."
         }));
       }
@@ -828,8 +833,9 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var notes = this.props.notes.map(function (note, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_note_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          key: i,
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: i
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_note_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           note: note
         }));
       });
@@ -900,22 +906,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
- // class NoteIndexItem extends React.Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = this.props.notes;
-//   }
-//   render() {
-//     return(
-//       <div className="note-container">
-//       <h2>{note.title}</h2>
-//       <p>{note.body}</p>
-//       <Link to=""><i class="fas fa-edit"></i></Link>
-//       <button onClick={this.props.delete(this.state.notes.i)}><i class="fa fa-trash"></i></button>
-//     </div>
-//     )
-//   }
-// }
+
 
 var NoteIndexItem = function NoteIndexItem(_ref) {
   var note = _ref.note;
@@ -1434,7 +1425,9 @@ var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"]
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_note_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/note_actions */ "./frontend/actions/note_actions.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1457,6 +1450,9 @@ var notesReducer = function notesReducer() {
       newState = Object.assign({}, state);
       delete newState[action.payload.note.id];
       return newState;
+
+    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["LOGOUT_CURRENT_USER"]:
+      return {};
 
     default:
       return state;
@@ -1543,7 +1539,6 @@ var sessionReducer = function sessionReducer() {
     id: null
   };
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  console.log(action);
   Object.freeze(state);
 
   switch (action.type) {

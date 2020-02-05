@@ -44,6 +44,12 @@ class NoteForm extends React.Component {
                     author_id: this.state.author_id};
    
     this.props.createNote(note)
+    this.setState({
+        title: "",
+        body: "",
+        author_id: this.props.author_id,
+        open: false
+    });
   }
 
   getOutput() {
@@ -60,7 +66,7 @@ class NoteForm extends React.Component {
       )
     } else {
       output = (<div className="input-box">
-        <input onFocus={this.toggle} className="body" type="text" onChange={this.update("body")} placeholder="Take a note..." />
+        <input onFocus={this.toggle} className="body" type="text"  placeholder="Take a note..." />
       </div>)
     }
     return output;
