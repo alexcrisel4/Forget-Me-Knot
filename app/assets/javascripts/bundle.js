@@ -513,10 +513,9 @@ function (_React$Component) {
   _createClass(LoginForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault;
+      e.preventDefault();
       var user = Object.assign({}, this.state);
-      this.props.processForm(user);
-      this.props.history.push("/home");
+      this.props.processForm(user); // .then(this.props.history.push("/home"))
     }
   }, {
     key: "update",
@@ -530,13 +529,13 @@ function (_React$Component) {
   }, {
     key: "handleDemo",
     value: function handleDemo(e) {
-      e.preventDefault;
+      e.preventDefault();
       var user = {
         email: "demo@demouser.com",
         username: "demouser",
         password: "demouser"
       };
-      this.props.processForm(user);
+      this.props.processForm(user).then(this.props.history.push("/home"));
     }
   }, {
     key: "render",
@@ -1034,22 +1033,23 @@ function (_React$Component) {
     value: function render() {
       if (!this.state.title) return null;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: ""
+        className: "note-form-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: ""
+        className: "note-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: ""
+        className: "input-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "",
+        className: "title",
         type: "text",
         onChange: this.update("title"),
         value: this.state.title
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "",
+        className: "body",
         type: "text",
         onChange: this.update("body"),
         value: this.state.body
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "close",
         onClick: this.handleSubmit
       }, "Update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleDelete
@@ -1239,8 +1239,7 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var user = Object.assign({}, this.state.user);
-      this.props.processForm(user);
-      this.props.history.push("/home");
+      this.props.processForm(user); // this.props.history.push("/home")
     }
   }, {
     key: "update",
@@ -1703,6 +1702,7 @@ var Auth = function Auth(_ref) {
       path = _ref.path,
       loggedIn = _ref.loggedIn,
       exact = _ref.exact;
+  debugger;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: path,
     exact: exact,
@@ -1719,6 +1719,7 @@ var Protected = function Protected(_ref2) {
       path = _ref2.path,
       loggedIn = _ref2.loggedIn,
       exact = _ref2.exact;
+  debugger;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     path: path,
     exact: exact,

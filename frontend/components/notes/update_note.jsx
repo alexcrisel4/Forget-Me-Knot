@@ -52,13 +52,13 @@ class UpdateForm extends React.Component {
   render() {
     if(!this.state.title) return null;
     return (
-      <div className="">
-        <form className="" >
-          <div className="">
-            <input className="" type="text" onChange={this.update("title")} value={this.state.title} />
-            <input className="" type="text" onChange={this.update("body")} value={this.state.body} />
+      <div className="note-form-container">
+        <form className="note-form" >
+          <div className="input-box">
+            <input className="title" type="text" onChange={this.update("title")} value={this.state.title} />
+            <input className="body" type="text" onChange={this.update("body")} value={this.state.body} />
           </div>
-          <button onClick={this.handleSubmit}>Update</button>
+          <button className="close" onClick={this.handleSubmit}>Update</button>
           <button onClick={this.handleDelete}><i className="fa fa-trash"></i></button>
         </form>
       </div>

@@ -15,10 +15,10 @@ class LoginForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault;
+    e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
-    this.props.history.push("/home")
+    this.props.processForm(user)
+    // .then(this.props.history.push("/home"))
   }
 
   update(field) {
@@ -26,16 +26,17 @@ class LoginForm extends React.Component {
       [field]: e.target.value
     })
   }
+
   handleDemo(e) {
-    e.preventDefault;
+    e.preventDefault();
     let user = {
       email: "demo@demouser.com",
       username: "demouser",
       password: "demouser"
     }
-    this.props.processForm(user);
-    
 
+    this.props.processForm(user).then(this.props.history.push("/home"));
+    
   }
 
   render() {

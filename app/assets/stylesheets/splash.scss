@@ -40,20 +40,22 @@ h1 {
   flex-direction: column;
   border: .5px solid #e0e0e0;
   border-radius: 8px;
-  width: 40%;
-  height: 500px;
+  max-width: 350px;
+  // width: 40%;
+  height: 625px;
   font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
   margin: auto;
   color: #202124;
   padding: 48px 40px 36px;
   margin-top: 20px;
+  overflow: none;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+  overflow: none;
 }
 
 
