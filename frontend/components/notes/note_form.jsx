@@ -66,9 +66,10 @@ class NoteForm extends React.Component {
       )
     } else {
       output = (<div className="input-box">
-        <input onFocus={this.toggle} className="body" type="text"  placeholder="Take a note..." />
+        <input className="body" type="text"  placeholder="Take a note..." />
       </div>)
     }
+    // onFocus = { this.toggle } 
     return output;
   }
 
@@ -88,4 +89,4 @@ class NoteForm extends React.Component {
   
 }
 
-export default onClickOutside(NoteForm)
+export default NoteForm

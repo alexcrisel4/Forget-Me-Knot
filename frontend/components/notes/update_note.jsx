@@ -5,10 +5,10 @@ class UpdateForm extends React.Component {
   constructor(props) {
     super(props)
    this.state = {
-     title: false,
-     body: false,
-     author_id: this.props.note.author_id,
-     id: this.props.note.id
+     title: "",
+     body: "",
+     author_id: null,
+     id: null
    }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,15 +26,12 @@ class UpdateForm extends React.Component {
   }
 
   componentDidMount () {
-    this.props.fetchNote(this.props.match.params.noteId)
-    .then((note) => {
-      console.log(note);
-        this.setState( {title: note.payload.note.title,
-          body: note.payload.note.body,
-          author_id: note.payload.note.author_id,
-          id: note.payload.note.id})
-    })
-    console.log(this.state);
+    let note = this.props.note;
+      
+        this.setState( {title: note.title,
+          body: note.body,
+          author_id: note.author_id,
+          id: note.id})
   }
 
 
@@ -46,7 +43,7 @@ class UpdateForm extends React.Component {
 
   handleDelete(e) {
     e.preventDefault();
-    this.props.deleteNote(this.props.match.params.noteId).then(this.props.history.push('/home'))
+    this.props.deleteNote(this.state.id).then(this.props.history.push('/home'))
   }
 
   render() {

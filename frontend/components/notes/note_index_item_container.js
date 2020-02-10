@@ -1,24 +1,16 @@
-// import NoteIndexItem from './note_index_item';
-// import { connect } from 'react-redux';
-// import {  updateNote, deleteNote } from '../../actions/note_actions';
+import NoteIndexItem from './note_index_item';
 
-// const mapStateToProps = (state) => {
-
-//   let note = Object.values(state.entities.notes)
-
-//   return ({
-//     note: note
-//   })
+import { connect } from 'react-redux';
 
 
-// }
 
-// const mapDispatchToProps = dispatch => {
-//   return ({
-    
-//     updateNote: (note) => dispatch(updateNote(note)),
-//     deleteNote: (id) => dispatch(deleteNote(id))
-//   })
-// }
+const mapStateToProps = ({ session }) => ({
+  currentUser: session.currentUser
+});
 
-// export default connect(mapStateToProps, mapDispatchToProps)(NoteIndexItem);
+const mapDispatchToProps = dispatch => ({
+  openModal: modal => dispatch(openModal(modal))
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteIndexItem);

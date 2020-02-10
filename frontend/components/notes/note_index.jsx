@@ -1,20 +1,23 @@
 import React from 'react';
 import NoteIndexItem from './note_index_item'
+
 class NoteIndex extends React.Component {
   constructor(props) {
     super(props)
 
-
+  
   }
 
   componentDidMount() {
     this.props.fetchNotes();
   }
 
+  
+
 
   render() {
     let notes = this.props.notes.map((note, i) => {
-      return <li key={i}><NoteIndexItem  note={note} /></li>
+      return <li onClick={() => this.props.openModal({note: note.id})}> <NoteIndexItem key={i} note={note} /></li>
     })
 
     return (

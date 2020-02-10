@@ -60,7 +60,7 @@ class LoginForm extends React.Component {
           <input className="login-submit" type="submit" onClick={this.handleDemo} value="DEMO LOGIN" /> */}
           </div>
         </form>
-        <p>Don't have an account? <Link to="/signup">Create account</Link></p>
+        <p>Don't have an account?  <Link className="link" to="/signup">Create account</Link></p>
       </div>
     )
   }
