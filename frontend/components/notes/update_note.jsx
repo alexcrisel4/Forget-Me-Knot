@@ -39,18 +39,20 @@ class UpdateForm extends React.Component {
     e.preventDefault();
     console.log(this.state);
     this.props.updateNote(this.state).then(this.props.history.push(`/home`))
+    this.props.closeModal();
   }
 
   handleDelete(e) {
     e.preventDefault();
     this.props.deleteNote(this.state.id).then(this.props.history.push('/home'))
+    this.props.closeModal();
   }
 
   render() {
     if(!this.state.title) return null;
     return (
-      <div className="note-form-container">
-        <form className="note-form" >
+      <div className="update-note-form-container">
+        <form className="update-note-form" >
           <div className="input-box">
             <input className="title" type="text" onChange={this.update("title")} value={this.state.title} />
             <input className="body" type="text" onChange={this.update("body")} value={this.state.body} />

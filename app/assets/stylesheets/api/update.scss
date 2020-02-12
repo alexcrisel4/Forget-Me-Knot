@@ -1,0 +1,43 @@
+.update-note-container {
+  display: inline-block;
+text-align: center;
+box-shadow: inset 1px 1px 0 rgba(0,0,0,.1), inset 0 -1px 0 rgba(0,0,0,.07);
+width: 100%;
+height: fit-content;
+}
+.title {
+  border-bottom: none;
+  padding: 15px;
+}
+
+.update-note-form {
+ 
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-self: center;
+  color: #e8eaed;
+  input {
+    background-color: rgb(31, 31, 31);
+    border: none;
+    // padding: 15px;
+    height: 50%;
+    // border-radius: 6px;
+    color: lightgray;
+    font-family: roboto,'Noto Sans Myanmar UI',arial,sans-serif;
+    font-size: 14px;
+    outline: none;
+   input::placeholder {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  button {
+    background: none;
+    border: none;
+    color: lightgray;
+    cursor: pointer;
+    width: fit-content;
+    
+  }
+}
+  } 
