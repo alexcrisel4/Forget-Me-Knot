@@ -28,7 +28,7 @@ class UpdateForm extends React.Component {
   componentDidMount () {
     let note = this.props.note;
       
-        this.setState( {title: note.title,
+        this.setState( {title: note.title || "title",
           body: note.body,
           author_id: note.author_id,
           id: note.id})
@@ -38,14 +38,13 @@ class UpdateForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state);
-    this.props.updateNote(this.state).then(this.props.history.push(`/home`))
-    this.props.closeModal();
+    this.props.updateNote(this.state).then(this.props.closeModal());
+    
   }
 
   handleDelete(e) {
     e.preventDefault();
-    this.props.deleteNote(this.state.id).then(this.props.history.push('/home'))
-    this.props.closeModal();
+    this.props.deleteNote(this.state.id).then(this.props.closeModal());
   }
 
   render() {
@@ -53,12 +52,16 @@ class UpdateForm extends React.Component {
     return (
       <div className="update-note-form-container">
         <form className="update-note-form" >
-          <div className="input-box">
-            <input className="title" type="text" onChange={this.update("title")} value={this.state.title} />
-            <input className="body" type="text" onChange={this.update("body")} value={this.state.body} />
+          <div className="update-input-box">
+            <div className="inputs">
+              <input className="title" type="text" onChange={this.update("title")} value={this.state.title} />
+              <input className="body" type="text" onChange={this.update("body")} value={this.state.body} />
+            </div>
+            <div className="buttons">
+              <button className="update-button"onClick={this.handleDelete}><i className="fa fa-trash"></i></button>
+              <button className="update-button" onClick={this.handleSubmit}>Update</button>
+            </div>
           </div>
-          <button className="close" onClick={this.handleSubmit}>Update</button>
-          <button onClick={this.handleDelete}><i className="fa fa-trash"></i></button>
         </form>
       </div>
     )

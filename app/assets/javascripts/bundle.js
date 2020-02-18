@@ -1100,7 +1100,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       var note = this.props.note;
       this.setState({
-        title: note.title,
+        title: note.title || "title",
         body: note.body,
         author_id: note.author_id,
         id: note.id
@@ -1111,15 +1111,13 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       console.log(this.state);
-      this.props.updateNote(this.state).then(this.props.history.push("/home"));
-      this.props.closeModal();
+      this.props.updateNote(this.state).then(this.props.closeModal());
     }
   }, {
     key: "handleDelete",
     value: function handleDelete(e) {
       e.preventDefault();
-      this.props.deleteNote(this.state.id).then(this.props.history.push('/home'));
-      this.props.closeModal();
+      this.props.deleteNote(this.state.id).then(this.props.closeModal());
     }
   }, {
     key: "render",
@@ -1130,7 +1128,9 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "update-note-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "input-box"
+        className: "update-input-box"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "inputs"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "title",
         type: "text",
@@ -1141,14 +1141,17 @@ function (_React$Component) {
         type: "text",
         onChange: this.update("body"),
         value: this.state.body
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "close",
-        onClick: this.handleSubmit
-      }, "Update"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "update-button",
         onClick: this.handleDelete
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fa fa-trash"
-      }))));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "update-button",
+        onClick: this.handleSubmit
+      }, "Update")))));
     }
   }]);
 
