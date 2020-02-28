@@ -812,14 +812,15 @@ function (_React$Component) {
         }, "Create")));
       } else {
         output = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          onFocus: this.toggle,
+          onBlur: this.toggle,
           className: "input-box"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           className: "body",
           type: "text",
           placeholder: "Take a note..."
         }));
-      } // onFocus = { this.toggle } 
-
+      }
 
       return output;
     }

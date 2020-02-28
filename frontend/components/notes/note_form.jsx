@@ -65,11 +65,11 @@ class NoteForm extends React.Component {
         </div>
       )
     } else {
-      output = (<div className="input-box">
-        <input className="body" type="text"  placeholder="Take a note..." />
+      output = (<div onFocus={this.toggle} onBlur={this.toggle} className="input-box">
+        <input  className="body" type="text"  placeholder="Take a note..." />
       </div>)
     }
-    // onFocus = { this.toggle } 
+  
     return output;
   }
 
